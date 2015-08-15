@@ -5,7 +5,8 @@ from setuptools import setup
 setup(
     name="mana_archive",
     version='0.1',
-    description='A database and API for accessing information about cards from the Magic: The Gathering collectible card game.',
+    description=('A database and API for accessing information about cards from the'
+                 'Magic: The Gathering collectible card game.'),
     url='',
     author='John Cleaver',
     author_email='cleaver.john.k@gmail.com',
