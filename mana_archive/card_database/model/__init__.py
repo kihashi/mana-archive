@@ -5,3 +5,9 @@ Copyright: 2015 John Cleaver
 License:   BSD (See LICENSE file)
 """
 
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+
+engine = create_engine('sqlite:///cards.db')
+
+Base = declarative_base()
