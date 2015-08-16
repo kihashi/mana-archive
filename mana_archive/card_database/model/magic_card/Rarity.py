@@ -12,6 +12,7 @@ class Rarity(Base):
     __table_name__ = "rarity"
 
     rarity = Column(Unicode, primary_key=True)
+    abbreviation = Column(Unicode)
 
     def __repr__(self):
         return self.rarity
