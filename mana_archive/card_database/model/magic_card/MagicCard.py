@@ -6,7 +6,7 @@ Copyright: 2015 John Cleaver
 License:   BSD (See LICENSE file)
 """
 
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, Unicode, UnicodeText, ForeignKey
 from sqlalchemy.orm import relationship, backref
 
 class MagicCard(Base):
@@ -14,17 +14,17 @@ class MagicCard(Base):
 
     layout_id = Column(Integer, ForeignKey('layouts.id'))
     layout = relationship("Layout", backref="cards")
-    name = Column(String, primary_key=True)
-    search_name = Column(String)
-    alt_side = Column(String, ForeignKey('magic_card.name'))
-    mana_cost = Column(String)
+    name = Column(Unicode, primary_key=True)
+    search_name = Column(Unicode)
+    alt_side = Column(Unicode, ForeignKey('magic_card.name'))
+    mana_cost = Column(Unicode)
     converted_mana_cost = Column(Integer)
     colors = relationship("Color", secondary="color")
     supertypes = relationship("Supertype", secondary="supertype")
     card_types = relationship("CardType", secondary="card_type")
     subtypes = relationship("Subtype", secondary="subtype")
-    rules_text = Column(String)
-    printed_text = Column(String)
+    rules_text = Column(UnicodeText)
+    printed_text = Column(UnicodeText)
     power = Column(Integer)
     toughness = Column(Integer)
     loyalty = Column(Integer)
