@@ -6,11 +6,12 @@ Copyright: 2015 John Cleaver
 License:   BSD (See LICENSE file)
 """
 
-from sqlalchemy import Column, Unicode, ForeignKey, Date, UnicodeText
+from sqlalchemy import Column, Unicode, ForeignKey, Date, UnicodeText, Integer
 
 class Ruling(Base):
     __table_name__ = "ruling"
 
+    id = Column(Integer, primary_key=True)
     date = Column(Date)
     text = Column(UnicodeText)
     card = Column(Unicode, ForeignKey('magic_card.name'))
