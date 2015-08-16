@@ -11,7 +11,7 @@ from sqlalchemy import Column, Unicode
 class Subtype(Base):
     __table_name__ = "subtype"
 
-    subtype = Column(Unicode)
+    subtype = Column(Unicode, primary_key=True)
 
     def __repr__(self):
         return self.subtype
