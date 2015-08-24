@@ -13,7 +13,7 @@ from ..base import Base, Session
 class Layout(Base):
     __tablename__ = "layout"
 
-    layout = Column(Unicode)
+    layout = Column(Unicode, primary_key=True)
     abbreviation = Column(Unicode)
     cards = relationship("MagicCard")
 
