@@ -12,4 +12,5 @@ engine = create_engine('sqlite:///cards.db')
 
 Base = declarative_base()
 
-from .magic_card import MagicCard, Ruling, Color, Supertype, CardType, Subtype, Rarity, CardRelease, Layout
+from .magic_card import MagicCard, Ruling, Color, Supertype, CardType, Subtype, Rarity, CardRelease, Layout, Ruling,\
+    CardCardTypeLink, CardColorLink, CardSupertypeLink, CardSubtypeLink
