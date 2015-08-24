@@ -8,6 +8,7 @@ License:   BSD (See LICENSE file)
 
 from sqlalchemy import UnicodeText, Integer, Column, Unicode, ForeignKey
 from sqlalchemy.orm import relationship, backref
+from ..base import Base, Session
 
 class CardRelease(Base):
     __tablename__ = "card_release"

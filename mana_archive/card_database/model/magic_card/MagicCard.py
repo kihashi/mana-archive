@@ -8,6 +8,7 @@ License:   BSD (See LICENSE file)
 
 from sqlalchemy import Column, Integer, Unicode, UnicodeText, ForeignKey
 from sqlalchemy.orm import relationship, backref
+from ..base import Base, Session
 
 class MagicCard(Base):
     __tablename__= "magic_card"

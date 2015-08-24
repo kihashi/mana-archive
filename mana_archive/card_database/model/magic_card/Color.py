@@ -7,6 +7,7 @@ License:   BSD (See LICENSE file)
 """
 
 from sqlalchemy import Column, Unicode, ForeignKey
+from ..base import Base, Session
 
 class Color(Base):
     __tablename__ = "color"

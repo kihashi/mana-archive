@@ -5,12 +5,7 @@ Copyright: 2015 John Cleaver
 License:   BSD (See LICENSE file)
 """
 
-from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-
-engine = create_engine('sqlite:///cards.db')
-
-Base = declarative_base()
+from .base import Base, Session
 
 from .magic_card import MagicCard, Ruling, Color, Supertype, CardType, Subtype, Rarity, CardRelease, Layout, Ruling,\
     Nickname, Price, Legality,\

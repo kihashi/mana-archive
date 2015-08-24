@@ -8,6 +8,7 @@ License:   BSD (See LICENSE file)
 
 from sqlalchemy import Column, ForeignKey, Unicode, Integer
 from sqlalchemy.orm import relationship
+from ..base import Base, Session
 
 class CardSubtypeLink(Base):
     __tablename__ = "card_subtype_link"

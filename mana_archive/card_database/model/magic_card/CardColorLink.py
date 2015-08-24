@@ -8,6 +8,7 @@ License:   BSD (See LICENSE file)
 
 from sqlalchemy import Column, ForeignKey, Unicode
 from sqlalchemy.orm import relationship
+from ..base import Base, Session
 
 class CardColorLink(Base):
     __tablename__ = "card_color_link"

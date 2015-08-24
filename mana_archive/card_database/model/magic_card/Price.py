@@ -8,6 +8,7 @@ License:   BSD (See LICENSE file)
 
 from sqlalchemy import Column, Unicode, Float, DateTime, Integer
 from sqlalchemy.orm import relationship
+from ..base import Base, Session
 
 class Price(Base):
     __tablename__ = "price"

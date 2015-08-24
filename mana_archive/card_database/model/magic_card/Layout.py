@@ -8,6 +8,7 @@ License:   BSD (See LICENSE file)
 
 from sqlalchemy import Unicode, Column
 from sqlalchemy.orm import relationship
+from ..base import Base, Session
 
 class Layout(Base):
     __tablename__ = "layout"

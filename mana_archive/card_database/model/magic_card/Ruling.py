@@ -7,6 +7,7 @@ License:   BSD (See LICENSE file)
 """
 
 from sqlalchemy import Column, Unicode, ForeignKey, Date, UnicodeText, Integer
+from ..base import Base, Session
 
 class Ruling(Base):
     __tablename__ = "ruling"

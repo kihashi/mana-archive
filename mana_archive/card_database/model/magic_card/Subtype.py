@@ -7,6 +7,7 @@ License:   BSD (See LICENSE file)
 """
 
 from sqlalchemy import Column, Unicode
+from ..base import Base, Session
 
 class Subtype(Base):
     __tablename__ = "subtype"

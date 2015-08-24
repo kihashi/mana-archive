@@ -7,6 +7,7 @@ License:   BSD (See LICENSE file)
 """
 
 from sqlalchemy import Column, Unicode, Integer, Date
+from ..base import Base, Session
 
 class Expansion(Base):
     __tablename__ = "expansion"
