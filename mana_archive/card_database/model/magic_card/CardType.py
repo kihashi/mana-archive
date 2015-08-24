@@ -9,7 +9,7 @@ License:   BSD (See LICENSE file)
 from sqlalchemy import Column, Unicode
 
 class CardType(Base):
-    __table_name__ = "card_type"
+    __tablename__ = "card_type"
 
     card_type = Column(Unicode, primary_key=True)
 

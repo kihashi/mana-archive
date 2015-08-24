@@ -9,7 +9,7 @@ License:   BSD (See LICENSE file)
 from sqlalchemy import Column, Unicode
 
 class Rarity(Base):
-    __table_name__ = "rarity"
+    __tablename__ = "rarity"
 
     rarity = Column(Unicode, primary_key=True)
     abbreviation = Column(Unicode)

@@ -9,7 +9,7 @@ License:   BSD (See LICENSE file)
 from sqlalchemy import Column, Unicode
 
 class Supertype(Base):
-    __table_name__ = "supertype"
+    __tablename__ = "supertype"
 
     supertype = Column(Unicode, primary_key=True)
 

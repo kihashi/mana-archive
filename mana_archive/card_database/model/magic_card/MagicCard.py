@@ -10,7 +10,7 @@ from sqlalchemy import Column, Integer, Unicode, UnicodeText, ForeignKey
 from sqlalchemy.orm import relationship, backref
 
 class MagicCard(Base):
-    __table_name__= "magic_card"
+    __tablename__= "magic_card"
 
     layout_id = Column(Integer, ForeignKey('layouts.id'))
     layout = relationship("Layout", backref="cards")

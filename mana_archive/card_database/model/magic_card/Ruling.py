@@ -9,7 +9,7 @@ License:   BSD (See LICENSE file)
 from sqlalchemy import Column, Unicode, ForeignKey, Date, UnicodeText, Integer
 
 class Ruling(Base):
-    __table_name__ = "ruling"
+    __tablename__ = "ruling"
 
     id = Column(Integer, primary_key=True)
     date = Column(Date)

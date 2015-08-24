@@ -9,7 +9,7 @@ License:   BSD (See LICENSE file)
 from sqlalchemy import Column, Unicode
 
 class Subtype(Base):
-    __table_name__ = "subtype"
+    __tablename__ = "subtype"
 
     subtype = Column(Unicode, primary_key=True)
 

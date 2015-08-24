@@ -9,7 +9,7 @@ License:   BSD (See LICENSE file)
 from sqlalchemy import Column, Unicode, ForeignKey
 
 class Color(Base):
-    __table_name__ = "color"
+    __tablename__ = "color"
 
     color = Column(Unicode, primary_key=True)
     abbreviation = Column(Unicode)
