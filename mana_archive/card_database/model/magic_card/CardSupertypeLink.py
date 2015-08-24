@@ -7,13 +7,15 @@ License:   BSD (See LICENSE file)
 """
 
 from sqlalchemy import Column, ForeignKey, Unicode, Integer
+from sqlalchemy.orm import relationship
 
 class CardSupertypeLink(Base):
     __tablename__ = "card_supertype_link"
 
-    card = Column(Unicode, ForeignKey("MagicCard.name"), primary_key=True)
-    supertype = Column(Unicode, ForeignKey("Supertype.supertype"), primary_key=True)
+    card_id = Column(Unicode, ForeignKey("MagicCard.name"), primary_key=True)
+    supertype_id = Column(Unicode, ForeignKey("Supertype.supertype"), primary_key=True)
     order = Column(Integer)
+    supertype = relationship("Supertype")
 
     def __repr__(self):
         return "Card: {CARD} | Supertype: {Supertype}".format(CARD=self.card, SUPERTYPE=self.supertype)

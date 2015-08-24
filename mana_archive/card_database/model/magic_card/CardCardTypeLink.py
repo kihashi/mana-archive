@@ -7,13 +7,15 @@ License:   BSD (See LICENSE file)
 """
 
 from sqlalchemy import Column, ForeignKey, Unicode, Integer
+from sqlalchemy.orm import relationship
 
 class CardCardTypeLink(Base):
     __tablename__ = "card_card_type_link"
 
-    card = Column(Unicode, ForeignKey("MagicCard.name"), primary_key=True)
-    card_type = Column(Unicode, ForeignKey("CardType.card_type"), primary_key=True)
+    card_id = Column(Unicode, ForeignKey("MagicCard.name"), primary_key=True)
+    card_type_id = Column(Unicode, ForeignKey("CardType.card_type"), primary_key=True)
     order = Column(Integer)
+    card_type = relationship("CardType")
 
     def __repr__(self):
         return "Card: {CARD} | Type: {CARDTYPE}".format(CARD=self.card, CARDTYPE=self.card_type)
