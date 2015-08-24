@@ -18,7 +18,7 @@ class MagicCard(Base):
     name = Column(Unicode, primary_key=True)
     search_name = Column(Unicode)
     alt_side_id = Column(Unicode, ForeignKey('magic_card.name'))
-    alt_side = relationship("MagicCard", remote=[name], uselist=False, backref="alt_side")
+    alt_side = relationship("MagicCard", remote_side=[name], uselist=False, backref="alt_side")
     mana_cost = Column(Unicode)
     converted_mana_cost = Column(Integer)
     colors = relationship("CardColorLink")
