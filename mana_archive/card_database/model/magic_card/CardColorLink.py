@@ -13,8 +13,8 @@ from ..base import Base, Session
 class CardColorLink(Base):
     __tablename__ = "card_color_link"
 
-    card_id = Column(Unicode, ForeignKey("MagicCard.name"), primary_key=True)
-    color_id = Column(Unicode, ForeignKey("Color.color"), primary_key=True)
+    card_id = Column(Unicode, ForeignKey("magic_card.name"), primary_key=True)
+    color_id = Column(Unicode, ForeignKey("color.color"), primary_key=True)
     color = relationship("Color")
 
     def __repr__(self):

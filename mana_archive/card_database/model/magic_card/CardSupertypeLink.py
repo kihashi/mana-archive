@@ -13,8 +13,8 @@ from ..base import Base, Session
 class CardSupertypeLink(Base):
     __tablename__ = "card_supertype_link"
 
-    card_id = Column(Unicode, ForeignKey("MagicCard.name"), primary_key=True)
-    supertype_id = Column(Unicode, ForeignKey("Supertype.supertype"), primary_key=True)
+    card_id = Column(Unicode, ForeignKey("magic_card.name"), primary_key=True)
+    supertype_id = Column(Unicode, ForeignKey("supertype.supertype"), primary_key=True)
     order = Column(Integer)
     supertype = relationship("Supertype")
 

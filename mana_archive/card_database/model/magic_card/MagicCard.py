@@ -13,7 +13,7 @@ from ..base import Base, Session
 class MagicCard(Base):
     __tablename__= "magic_card"
 
-    layout_id = Column(Integer, ForeignKey('layouts.id'))
+    layout_id = Column(Integer, ForeignKey('layout.layout'))
     layout = relationship("Layout", backref="cards")
     name = Column(Unicode, primary_key=True)
     search_name = Column(Unicode)

@@ -13,8 +13,8 @@ from ..base import Base, Session
 class CardCardTypeLink(Base):
     __tablename__ = "card_card_type_link"
 
-    card_id = Column(Unicode, ForeignKey("MagicCard.name"), primary_key=True)
-    card_type_id = Column(Unicode, ForeignKey("CardType.card_type"), primary_key=True)
+    card_id = Column(Unicode, ForeignKey("magic_card.name"), primary_key=True)
+    card_type_id = Column(Unicode, ForeignKey("card_type.card_type"), primary_key=True)
     order = Column(Integer)
     card_type = relationship("CardType")
 

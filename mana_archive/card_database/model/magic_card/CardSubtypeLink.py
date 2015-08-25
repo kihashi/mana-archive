@@ -13,8 +13,8 @@ from ..base import Base, Session
 class CardSubtypeLink(Base):
     __tablename__ = "card_subtype_link"
 
-    card_id = Column(Unicode, ForeignKey("MagicCard.name"), primary_key=True)
-    subtype_id = Column(Unicode, ForeignKey("Subtype.subtype"), primary_key=True)
+    card_id = Column(Unicode, ForeignKey("magic_card.name"), primary_key=True)
+    subtype_id = Column(Unicode, ForeignKey("subtype.subtype"), primary_key=True)
     order = Column(Integer)
     subtype = relationship("Subtype")
 

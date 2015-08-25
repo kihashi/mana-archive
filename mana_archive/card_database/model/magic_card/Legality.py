@@ -15,7 +15,7 @@ class Legality(Base):
     id = Column(Integer, primary_key=True)
     format = Column(Unicode)
     legality = Column(Unicode)
-    card_id = Column(Unicode, ForeignKey("MagicCard.name"))
+    card_id = Column(Unicode, ForeignKey("magic_card.name"))
 
     def __repr__(self):
         return "{FORMAT}: {LEGALITY}".format(FORMAT=self.format, LEGALITY=self.legality)

@@ -12,7 +12,7 @@ from ..base import Base, Session
 class Nickname(Base):
     __tablename__ = "nickname"
 
-    card_id = Column(Unicode, ForeignKey("MagicCard.name"))
+    card_id = Column(Unicode, ForeignKey("magic_card.name"))
     nickname = Column(Unicode, primary_key=True)
 
     def __repr__(self):
