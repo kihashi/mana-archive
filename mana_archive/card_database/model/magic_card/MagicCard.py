@@ -30,9 +30,9 @@ class MagicCard(Base):
     power = Column(Unicode)
     toughness = Column(Unicode)
     loyalty = Column(Integer)
-    releases = relationship("Release", backref="card")
+    releases = relationship("CardRelease", backref="card")
     rulings = relationship("Ruling")
-    nicknames = relationship("CardNick")
+    nicknames = relationship("Nickname")
     legalities = relationship("Legality")
 
     @property
