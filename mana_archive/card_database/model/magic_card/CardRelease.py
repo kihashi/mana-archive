@@ -21,9 +21,13 @@ class CardRelease(Base):
     rarity_id = Column(Unicode, ForeignKey("rarity.rarity"))
     rarity = relationship("Rarity")
     mtgoprice_id = Column(Integer, ForeignKey("price.id"))
-    mtgoprice = relationship("Price", uselist=False, backref=backref("card_release", uselist=False))
+    mtgoprice = relationship("Price",
+                             uselist=False,
+                             foreign_keys="CardRelease.mtgoprice_id")
     tcgplayerprice_id = Column(Integer, ForeignKey("price.id"))
-    tcgplayerprice = relationship("Price", uselist=False, backref=backref("card_release", uselist=False))
+    tcgplayerprice = relationship("Price",
+                                  uselist=False,
+                                  foreign_keys="CardRelease.tcgplayerprice_id")
 
     def __repr__(self):
         return self.card.name + " - " + self.expansion
