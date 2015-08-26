@@ -15,7 +15,6 @@ class Layout(Base):
 
     layout = Column(Unicode, primary_key=True)
     abbreviation = Column(Unicode)
-    cards = relationship("MagicCard")
 
     def __repr__(self):
         return self.abbreviation
