@@ -10,10 +10,10 @@ from .. import model
 
 def create_rarities():
     session = model.Session()
-    for r in [(u"Common", u"C"),
-              (u"Uncommon", u"U"),
-              (u"Rare", u"R"),
-              (u"Mythic Rare", u"M"),
-              (u"Time Spiral: Special")]:
+    for r in [("Common", "C"),
+              ("Uncommon", "U"),
+              ("Rare", "R"),
+              ("Mythic Rare", "M"),
+              ("Time Spiral: Special", "S")]:
         session.add(model.Rarity(rarity=r[0], abbreviation=r[1]))
     session.commit()

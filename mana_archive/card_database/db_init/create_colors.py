@@ -11,10 +11,10 @@ from .. import model
 
 def create_colors():
     session = model.Session()
-    for c in [(u"White", u"W"),
-              (u"Blue", u"U"),
-              (u"Black", u"B"),
-              (u"Red", u"R"),
-              (u"Green", u"G")]:
+    for c in [("White", "W"),
+              ("Blue", "U"),
+              ("Black", "B"),
+              ("Red", "R"),
+              ("Green", "G")]:
         session.add(model.Color(color=c[0], abbreviation=c[1]))
     session.commit()
