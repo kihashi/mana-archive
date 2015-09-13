@@ -14,6 +14,7 @@ def create_rarities():
               ("Uncommon", "U"),
               ("Rare", "R"),
               ("Mythic Rare", "M"),
-              ("Time Spiral: Special", "S")]:
+              ("Time Spiral: Special", "S"),
+              ("Basic Land", "L")]:
         session.add(model.Rarity(rarity=r[0], abbreviation=r[1]))
     session.commit()
