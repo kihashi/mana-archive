@@ -177,6 +177,8 @@ def _parse_card(card_json, expansion, session):
 
     if 'multiverseid' in card_json:
         db_cardrelease.multiverse_id = card_json['multiverseid']
+    else:
+        db_cardrelease.multiverse_id = 0
 
     if 'flavor' in card_json:
         db_cardrelease.flavor_text = card_json['flavor']
