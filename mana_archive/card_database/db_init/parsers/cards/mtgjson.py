@@ -106,6 +106,14 @@ def _parse_card(card_json, expansion, session):
                 session.add(db_layout)
             db_card.layout = db_layout
 
+        if 'names' in card_json:
+            # Find the other card in the list of names
+            alt_name = set(card_json['names']).difference([card_json['name']]).pop()
+            db_alt_side = session.query(model.MagicCard).filter_by(name=alt_name).first()
+            if db_alt_side is not None:
+                db_card.alt_side = db_alt_side
+                db_alt_side.alt_side = db_card
+
         if 'colors' in card_json:
             for card_color in card_json['colors']:
                 try:
