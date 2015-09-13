@@ -14,7 +14,7 @@ class CardRelease(Base):
     __tablename__ = "card_release"
 
     card_id = Column(Unicode, ForeignKey("magic_card.name"), primary_key=True)
-    multiverse_id = Column(Integer)
+    multiverse_id = Column(Integer, primary_key=True)
     flavor_text = Column(UnicodeText)
     expansion_id = Column(Unicode, ForeignKey("expansion.name"), primary_key=True)
     expansion = relationship("Expansion")
