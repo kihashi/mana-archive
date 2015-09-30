@@ -31,6 +31,10 @@ def open_file(file_location):
 
 def _parse_file(file_json):
     for set_json in file_json:
+        if file_json[set_json]['name'] == 'Unglued' or \
+            file_json[set_json]['name'] == 'Unhinged':
+            continue
+
         _parse_set(file_json[set_json])
 
 
