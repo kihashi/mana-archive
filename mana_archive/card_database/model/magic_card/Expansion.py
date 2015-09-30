@@ -6,7 +6,7 @@ Copyright: 2015 John Cleaver
 License:   BSD (See LICENSE file)
 """
 
-from sqlalchemy import Column, Unicode, Integer, Date
+from sqlalchemy import Column, Unicode, Integer, Date, Boolean
 from ..base import Base, Session
 
 class Expansion(Base):
@@ -22,6 +22,7 @@ class Expansion(Base):
     border = Column(Unicode)
     type = Column(Unicode)
     block = Column(Unicode)
+    online_only = Column(Boolean)
 
     def __repr__(self):
         return self.abbreviation
