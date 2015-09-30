@@ -65,7 +65,8 @@ def _parse_set(set_json):
             db_expansion.release_date = datetime.datetime.strptime(set_json['releaseDate'], "%Y-%m-%d").date()
             db_expansion.border = set_json['border']
             db_expansion.type = set_json['type']
-            db_expansion.block = set_json['block']
+            if 'block' in set_json:
+                db_expansion.block = set_json['block']
             session.add(db_expansion)
 
     for card in set_json['cards']:
