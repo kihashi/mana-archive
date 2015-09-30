@@ -13,10 +13,11 @@ from ..base import Base, Session
 class CardRelease(Base):
     __tablename__ = "card_release"
 
-    card_id = Column(Unicode, ForeignKey("magic_card.name"), primary_key=True)
-    multiverse_id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True)
+    card_id = Column(Unicode, ForeignKey("magic_card.name"), index=True)
+    multiverse_id = Column(Integer, index=True)
     flavor_text = Column(UnicodeText)
-    expansion_id = Column(Unicode, ForeignKey("expansion.name"), primary_key=True)
+    expansion_id = Column(Unicode, ForeignKey("expansion.name"), index=True)
     expansion = relationship("Expansion")
     rarity_id = Column(Unicode, ForeignKey("rarity.rarity"))
     rarity = relationship("Rarity")
