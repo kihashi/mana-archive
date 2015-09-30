@@ -45,15 +45,15 @@ class MagicCard(Base):
         card_string += " |"
 
         for supers in self.supertypes:
-            card_string += " " + supers
+            card_string += " " + supers.supertype.supertype
 
         for types in self.card_types:
-            card_string += " " + types
+            card_string += " " + types.card_type.card_type
 
         if self.subtypes:
             card_string += " --"
             for subs in self.subtypes:
-                card_string += " " + subs
+                card_string += " " + subs.subtype.subtype
 
         if self.rules_text:
             card_string += " | " + self.rules_text
@@ -67,11 +67,11 @@ class MagicCard(Base):
         if self.releases:
             card_string += " | "
             for release in self.releases:
-                card_string += release.expansion.upper() + "-" + release.rarity.upper() + ", "
+                card_string += release.expansion.abbreviation.upper() + "-" + release.rarity.abbreviation.upper() + ", "
             card_string = card_string[:-2]
 
         if self.alt_side:
-            card_string += " | " + "Alt: " + self.alt_side
+            card_string += " | " + "Alt: " + self.alt_side.name
 
         return card_string
 
