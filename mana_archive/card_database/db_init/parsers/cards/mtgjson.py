@@ -23,6 +23,7 @@ from sqlalchemy.orm.exc import NoResultFound
 from tqdm import tqdm
 from unidecode import unidecode
 from mana_archive.card_database import model
+from mana_archive.card_database.db_init import formats
 
 
 
@@ -186,7 +187,7 @@ def _parse_card(card_json, expansion, session):
 
 
         if 'legalities' in card_json:
-            for format_pair in card_json['legalities']:
+            for format_pair in [x for x in card_json['legalities'] if card_json['legalities'] in formats]:
                 db_legality = model.Legality(format=format_pair['format'], legality=format_pair['legality'])
                 db_card.legalities.append(db_legality)
                 session.add(db_legality)
