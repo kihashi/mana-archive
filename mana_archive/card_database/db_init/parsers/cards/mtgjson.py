@@ -195,6 +195,8 @@ def _parse_card(card_json, expansion, session):
     db_cardrelease = model.CardRelease()
     db_cardrelease.expansion = expansion
     db_cardrelease.card = db_card
+    db_cardrelease.mtgoprice = model.Price(source="MTGO")
+    db_cardrelease.tcgplayerprice = model.Price(source="TCGPlayer")
 
     if 'multiverseid' in card_json:
         db_cardrelease.multiverse_id = card_json['multiverseid']
