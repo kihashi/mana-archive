@@ -25,6 +25,11 @@ from unidecode import unidecode
 from mana_archive.card_database import model
 from mana_archive.card_database.db_init import formats
 
+excluded_sets = [
+    "Unglued",
+    "Unhinged",
+    "Vanguard"
+]
 
 
 def open_file(file_location):
@@ -34,17 +39,13 @@ def open_file(file_location):
 
 def _parse_file(file_json):
     for set_json in tqdm(file_json, leave=True, desc='MTG Sets', unit='Sets'):
-        if file_json[set_json]['name'] == 'Unglued' or \
-            file_json[set_json]['name'] == 'Unhinged':
-            continue
-
         _parse_set(file_json[set_json])
 
 
 def _parse_set(set_json):
     model.Base.metadata.create_all(model.base.engine)
     session = model.Session()
-    if "name" in set_json:
+    if "name" in set_json and set_json['name'] not in excluded_sets:
         try:
             db_expansion = session.query(model.Expansion).filter_by(name=set_json['name']).one()
         except NoResultFound:
@@ -72,15 +73,15 @@ def _parse_set(set_json):
             session.add(db_expansion)
             session.commit()
 
-    for card in tqdm(set_json['cards'], leave=True, desc=set_json['name'], unit='Cards'):
-        try:
-            _parse_card(card, db_expansion, session)
-        except Exception as e:
-            print("Error with " + card['name'])
-            print(card)
-            print(e)
-            print(traceback.print_exc())
-            exit()
+        for card in tqdm(set_json['cards'], leave=True, desc=set_json['name'], unit='Cards'):
+            try:
+                _parse_card(card, db_expansion, session)
+            except Exception as e:
+                print("Error with " + card['name'])
+                print(card)
+                print(e)
+                print(traceback.print_exc())
+                exit()
 
 def _parse_card(card_json, expansion, session):
     try:
