@@ -13,11 +13,11 @@ class Expansion(Base):
     __tablename__ = "expansion"
 
     name = Column(Unicode, primary_key=True)
-    abbreviation = Column(Unicode)
-    old_code = Column(Unicode)
-    gatherer_code = Column(Unicode)
-    mtgo_code = Column(Unicode)
-    dot_info_code = Column(Unicode)
+    abbreviation = Column(Unicode, index=True)
+    old_code = Column(Unicode, index=True)
+    gatherer_code = Column(Unicode, index=True)
+    mtgo_code = Column(Unicode, index=True)
+    dot_info_code = Column(Unicode, index=True)
     release_date = Column(Date)
     border = Column(Unicode)
     type = Column(Unicode)

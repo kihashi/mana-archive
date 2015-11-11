@@ -81,7 +81,6 @@ class MagicCard(Base):
         if self.printed_text is not None:
             return self.name + " | " + self.printed_text
 
-    @property
     def ruling_text(self, ruling_number):
         if ruling_number >= len(self.rulings):
             ruling_number = len(self.rulings)
@@ -89,8 +88,7 @@ class MagicCard(Base):
             ruling_number = 1
         return (self.rulings[ruling_number - 1], ruling_number, len(self.rulings))
 
-    @property
-    def flavor_text(self):
+    def flavor_text(self, set):
         for release in self.releases:
             if release.flavor_text is not None:
                 return release.flavor_text
@@ -100,8 +98,8 @@ class MagicCard(Base):
     @property
     def legality_text(self):
         legality_text = self.name
-        for l in self.legality:
-            legality_text += " | " + l.format_name.format_name + ": " + l.legality
+        for l in self.legalities:
+            legality_text += " | " + l.format + ": " + l.legality
 
         return legality_text
 

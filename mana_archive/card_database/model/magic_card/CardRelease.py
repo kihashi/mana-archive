@@ -31,7 +31,7 @@ class CardRelease(Base):
                                   foreign_keys="CardRelease.tcgplayerprice_id")
 
     def __repr__(self):
-        return self.card.name + " - " + self.expansion
+        return self.card.name + " - " + str(self.expansion)
 
     @property
     def printed_flavor_text(self):
