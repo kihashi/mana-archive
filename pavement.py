@@ -27,7 +27,7 @@ def clean_all():
 
 @task
 def download_data():
-    if not path('AllSets-x,json').exists():
+    if not path('AllSets-x.json').exists():
         sh('wget http://mtgjson.com/json/AllSets-x.json')
 
 
