@@ -5,7 +5,7 @@ Copyright: 2015 John Cleaver
 License:   BSD (See LICENSE file)
 """
 
-from paver.easy import task, path
+from paver.easy import task, path, sh
 import sys
 sys.path.append( path.abspath(path('.')) )
 from mana_archive.card_database import model
@@ -38,8 +38,8 @@ def build():
     db_init.create_colors()
     db_init.create_layouts()
     db_init.create_rarities()
-    mtgjson.main({'FILE': "AllSets-x.json", '--set': ''})
-    mtgo.main({})
+    sh('python -m mana_archive.card_database.db_init.parsers.cards.mtgjson AllSets-x.json')
+    sh('python -m mana_archive.card_database.db_init.parsers.prices.mtgo')
 
 @task
 def buildclean():
