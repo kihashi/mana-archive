@@ -38,8 +38,8 @@ def build():
     db_init.create_colors()
     db_init.create_layouts()
     db_init.create_rarities()
-    mtgjson.main({'FILE': "AllSets-x.json", '--set': ''})
-    mtgo.main({'--log': 'WARNING'})
+    sh('python -m mana_archive.card_database.db_init.parsers.cards.mtgjson AllSets-x.json')
+    sh('python -m mana_archive.card_database.db_init.parsers.prices.mtgo')
 
 @task
 def buildclean():
