@@ -39,7 +39,7 @@ def build():
     db_init.create_layouts()
     db_init.create_rarities()
     mtgjson.main({'FILE': "AllSets-x.json", '--set': ''})
-    mtgo.main({})
+    mtgo.main({'--log': 'WARNING'})
 
 @task
 def buildclean():
