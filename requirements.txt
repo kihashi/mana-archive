@@ -2,4 +2,4 @@ Paver==1.2.4
 SQLAlchemy==1.0.8
 Unidecode==0.04.18
 docopt==0.6.2
--e git+https://github.com/tqdm/tqdm.git@743af04f3948c2943ee3a00007cbad06c783f801#egg=tqdm-origin/HEAD
+-e git+https://github.com/tqdm/tqdm.git#egg=tqdm-origin/HEAD
