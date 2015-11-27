@@ -1,4 +1,5 @@
 [ ![Codeship Status for kihashi/mana_archive](https://codeship.com/projects/27bebd90-6a56-0133-ccb1-62b058ef9788/status?branch=master)](https://codeship.com/projects/114842)
+[![Code Issues](https://www.quantifiedcode.com/api/v1/project/93d89cd6ec2b4e2f91197b35004ee0d8/badge.svg)](https://www.quantifiedcode.com/app/project/93d89cd6ec2b4e2f91197b35004ee0d8)
 
 Mana Archive is a database and API for accessing information about cards from the Magic: The Gathering collectible card
 game.
