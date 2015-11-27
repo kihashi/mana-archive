@@ -78,7 +78,7 @@ def parse_prices(prices):
 def main(args):
     numeric_level = getattr(logging, args['--log'].upper(), None)
     logging.basicConfig(filename="mtgo.log", level=numeric_level)
-    if args['FILE'] != "":
+    if args['FILE']:
         logging.info("Loading prices from file: %s", args['FILE'])
         with open(args['FILE'], 'r', encoding="ISO-8859-1") as f:
             parse_prices(f)
