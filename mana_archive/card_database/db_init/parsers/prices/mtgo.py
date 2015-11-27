@@ -12,7 +12,7 @@ Usage:
 
 Options:
     -h --help       Show this message
-    --log=LOGLEVEL  Specifies the logging level
+    --log=LOGLEVEL  Specifies the logging level [Default: WARNING]
 """
 
 import logging
