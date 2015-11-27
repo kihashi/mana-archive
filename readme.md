@@ -14,3 +14,4 @@ Mana Archive includes a parser for [MTGJSON][1]. Other data sources may be added
 another data source, please open an issue and I will see about making a parser for it. Note that if the data source does
 not include data, then that data will not be added to the database.
 
+[1]: http://mtgjson.com/
