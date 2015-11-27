@@ -9,6 +9,7 @@ License:   BSD (See LICENSE file)
 from sqlalchemy import Column, Integer, Unicode, UnicodeText, ForeignKey
 from sqlalchemy.orm import relationship, backref
 from ..base import Base, Session
+from mana_archive.card_database.model.magic_card.CardRelease import CardRelease
 
 class MagicCard(Base):
     __tablename__= "magic_card"
@@ -88,12 +89,17 @@ class MagicCard(Base):
             ruling_number = 1
         return (self.rulings[ruling_number - 1], ruling_number, len(self.rulings))
 
-    def flavor_text(self, set):
-        for release in self.releases:
-            if release.flavor_text is not None:
-                return release.flavor_text
+    def flavor_text(self, set=None):
+        if set is None:
+            for release in self.releases:
+                if release.flavor_text is not None:
+                    return release.flavor_text
+            else:
+                return None
         else:
-            return None
+            session = Session()
+            return session.query(CardRelease).filter_by(card_id=self.name, expansion=set).one()
+
 
     @property
     def legality_text(self):
