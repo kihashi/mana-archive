@@ -5,7 +5,7 @@ Copyright: 2015 John Cleaver
 License:   BSD (See LICENSE file)
 """
 
-from paver.easy import *
+from paver.easy import task, path
 import sys
 sys.path.append( path.abspath(path('.')) )
 from mana_archive.card_database import model
