@@ -10,6 +10,7 @@ import sys
 sys.path.append(path.abspath(path('.')))
 from mana_archive.card_database import model
 from mana_archive.card_database import db_init
+from mana_archive import config
 
 
 @task
@@ -30,6 +31,11 @@ def download_data():
 
 
 @task
+def buildtest():
+    sh('wget ' + config.test_db_url)
+
+
+@task
 def build():
     download_data()
     model.Base.metadata.create_all(model.base.engine)
@@ -38,6 +44,7 @@ def build():
     db_init.create_rarities()
     sh('python -m mana_archive.card_database.db_init.parsers.cards.mtgjson AllSets-x.json')
     sh('python -m mana_archive.card_database.db_init.parsers.prices.mtgo')
+
 
 @task
 def buildclean():
