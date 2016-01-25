@@ -7,11 +7,9 @@ License:   BSD (See LICENSE file)
 
 from paver.easy import task, path, sh
 import sys
-sys.path.append( path.abspath(path('.')) )
+sys.path.append(path.abspath(path('.')))
 from mana_archive.card_database import model
 from mana_archive.card_database import db_init
-from mana_archive.card_database.db_init.parsers.cards import mtgjson
-from mana_archive.card_database.db_init.parsers.prices import mtgo
 
 
 @task
